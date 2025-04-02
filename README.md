@@ -14,7 +14,7 @@
 
 **Сокеты (Sockets)**
 
-Сокеты — это механизм связи между процессами, используемый для обмена данными через сеть. 
+Сокеты - это механизм связи между процессами, используемый для обмена данными через сеть. 
 В Java существуют два основных типа сокетов:
 
 1. **TCP-сокеты**: обеспечивают надежную передачу данных по протоколу TCP (Transmission Control Protocol).
@@ -22,7 +22,7 @@
 
 **Сервер (Server)**
 
-Сервер — это программа, которая ожидает входящие соединения от клиентов и обрабатывает их запросы.
+Сервер - это программа, которая ожидает входящие соединения от клиентов и обрабатывает их запросы.
 Сервер создает слушающий сокет (`ServerSocket`), ожидающий подключения клиентов.
 После получения запроса от клиента сервер может обрабатывать данные, отправлять ответы и закрывать соединение.
 Пример создания сервера на основе TCP-сокета, простого сервера, принимающего сообщения от клиентов:
@@ -68,7 +68,7 @@ public class Server {
 
 **Клиент (Client)**
 
-Клиент — это программа, которая инициирует подключение к серверу и отправляет запросы. 
+Клиент - это программа, которая инициирует подключение к серверу и отправляет запросы. 
 Клиенты используют `Socket` для установления соединения с сервером и отправки/получения данных.
 
 Пример создания клиента:
@@ -183,29 +183,29 @@ public class Client {
 
 ### 3.1 Основные переменные
 
-- `PORT = 8080` — порт для прослушивания входящих подключений.
-- `clients = new ArrayList<>()` — список подключенных клиентов.
-- `running = true` — состояние работы сервера.
-- `serverSocket` — серверный сокет.
+- `PORT = 8080` - порт для прослушивания входящих подключений.
+- `clients = new ArrayList<>()` - список подключенных клиентов.
+- `running = true` - состояние работы сервера.
+- `serverSocket` - серверный сокет.
 
 ### 3.2 Основные методы
 
-#### `start()` — запуск сервера
+#### `start()` - запуск сервера
 
 - Создаёт `ServerSocket` на `PORT`.
 - Ожидает подключения клиентов.
 - Запускает поток `readConsoleInput()` для обработки команд сервера.
 
-#### `readConsoleInput()` — обработка команд
+#### `readConsoleInput()` - обработка команд
 
 - Читает команды с консоли.
 - Если введено `stop server`, останавливает сервер и уведомляет клиентов.
 
-#### `broadcastMessage(String message)` — отправка сообщения всем клиентам
+#### `broadcastMessage(String message)` - отправка сообщения всем клиентам
 
 - Пересылает полученные от клиента сообщения остальным пользователям.
 
-#### `stopServer()` — остановка сервера
+#### `stopServer()` - остановка сервера
 
 - Закрывает все соединения и очищает список клиентов.
 
@@ -215,16 +215,16 @@ public class Client {
 
 ##### Основные переменные
 
-- `socket` — клиентский сокет.
-- `in`, `out` — потоки ввода/вывода.
-- `connected = true` — состояние подключения клиента.
+- `socket` - клиентский сокет.
+- `in`, `out` - потоки ввода/вывода.
+- `connected = true` - состояние подключения клиента.
 
 ##### Основные методы
 
-- `run()` — принимает сообщения от клиента и передаёт их в `broadcastMessage()`.
-- `sendMessage(String message)` — отправляет сообщение клиенту.
-- `stopClient()` — закрывает соединение клиента.
-- `closeConnections()` — закрывает потоки и удаляет клиента из списка.
+- `run()` - принимает сообщения от клиента и передаёт их в `broadcastMessage()`.
+- `sendMessage(String message)` - отправляет сообщение клиенту.
+- `stopClient()` - закрывает соединение клиента.
+- `closeConnections()` - закрывает потоки и удаляет клиента из списка.
 <br><br>
 
 ### [Документация для Class ServerSocket](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/ServerSocket.html)
@@ -236,34 +236,34 @@ public class Client {
 
 ### 4.1 Основные переменные
 
-- `socket` — клиентский сокет.
-- `out`, `in` — потоки ввода/вывода.
-- `loggedIn = false` — состояние авторизации.
-- `username` — имя пользователя.
-- `GUI` — графический интерфейс (Swing).
+- `socket` - клиентский сокет.
+- `out`, `in` - потоки ввода/вывода.
+- `loggedIn = false` - состояние авторизации.
+- `username` - имя пользователя.
+- `GUI` - графический интерфейс (Swing).
 
 ### 4.2 Основные методы
 
-#### `connectToServer()` — подключение к серверу
+#### `connectToServer()` - подключение к серверу
 
 - Открывает `Socket` на `localhost:8080`.
 - Создаёт потоки для обмена сообщениями.
 - Запускает `readMessages()` в отдельном потоке.
 
-#### `readMessages()` — приём сообщений с сервера
+#### `readMessages()` - приём сообщений с сервера
 
 - Читает входящие сообщения и обновляет `chatArea`.
 
-#### `disconnectFromServer()` — отключение клиента
+#### `disconnectFromServer()` - отключение клиента
 
 - Закрывает потоки и сокет соединения.
 
-#### `actionPerformed(ActionEvent e)` — обработка кнопок
+#### `actionPerformed(ActionEvent e)` - обработка кнопок
 
-- `login` — подключает клиента к серверу.
-- `post` — отправляет сообщение.
-- `delete` — очищает поле ввода.
-- `exit` — закрывает соединение и завершает программу.
+- `login` - подключает клиента к серверу.
+- `post` - отправляет сообщение.
+- `delete` - очищает поле ввода.
+- `exit` - закрывает соединение и завершает программу.
 <br><br>
 
 ### [Документация для Class Socket](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/Socket.html)
@@ -274,11 +274,11 @@ public class Client {
 ## 5. Описание графического интерфейса клиента
 
 ### 5.1 Используемые компоненты
-- `JFrame` — основное окно приложения. [Документация для Class JFrame](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/javax/swing/JFrame.html)
-- `JTextField` — поле для ввода текста. [Документация для Class JTextField](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/javax/swing/JTextField.html)
-- `JButton` — кнопки управления. [Документация для Class JButton](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/javax/swing/JButton.html)
-- `JTextArea` — область чата. [Документация для Class JTextArea](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/javax/swing/JTextArea.html)
-- `JScrollPane` — скроллбар для текстовой области. [Документация для Class JScrollPane](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/javax/swing/JScrollPane.html)
+- `JFrame` - основное окно приложения. [Документация для Class JFrame](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/javax/swing/JFrame.html)
+- `JTextField` - поле для ввода текста. [Документация для Class JTextField](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/javax/swing/JTextField.html)
+- `JButton` - кнопки управления. [Документация для Class JButton](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/javax/swing/JButton.html)
+- `JTextArea` - область чата. [Документация для Class JTextArea](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/javax/swing/JTextArea.html)
+- `JScrollPane` - скроллбар для текстовой области. [Документация для Class JScrollPane](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/javax/swing/JScrollPane.html)
 
 ### 5.2 Размещение компонентов
 - Верхняя панель (`JPanel`): поле ввода имени (`JTextField`), кнопка `login`.
@@ -286,9 +286,9 @@ public class Client {
 - Нижняя панель (`JPanel`): поле ввода сообщения (`JTextField`), кнопки `post`, `delete`, `exit`.
 
 ### 5.3 Обработчики событий
-- `KeyAdapter` — активация кнопки `login`, если введён текст в `usernameField`.
-- `ActionListener` — обработка нажатий кнопок.
-- `Thread` — асинхронное получение сообщений с сервера.
+- `KeyAdapter` - активация кнопки `login`, если введён текст в `usernameField`.
+- `ActionListener` - обработка нажатий кнопок.
+- `Thread` - асинхронное получение сообщений с сервера.
 
 <br><br>
 <hr>
